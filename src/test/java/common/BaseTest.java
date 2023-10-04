@@ -21,7 +21,7 @@ public class BaseTest {
         LogUtils.info("Launching Chrome browser...");
 
         ChromeOptions options = new ChromeOptions();
-        options.addArguments("--user-data-dir=C:\\Users\\LongLaptop\\AppData\\Local\\Google\\Chrome\\User Data\\Profile " + ""+profile+"");
+        options.addArguments("--user-data-dir=C:\\Users\\Administrator\\AppData\\Local\\Google\\Chrome\\User Data\\Profile " + ""+profile+"");
         options.addArguments("--remote-allow-origins=*");
         driver = new ChromeDriver(options);
         driver.manage().window().maximize();

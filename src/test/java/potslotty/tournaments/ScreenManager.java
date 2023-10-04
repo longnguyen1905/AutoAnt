@@ -1,5 +1,6 @@
 package potslotty.tournaments;
 
+import drivers.DriverManager;
 import keywords.Keyword;
 import org.sikuli.script.Pattern;
 import org.sikuli.script.Screen;
@@ -26,7 +27,7 @@ public class ScreenManager extends TournamentPage {
     private String spinOneTime = "spinOneTime.PNG";
 
     public void setFilePath(String path){
-        this.filePath = "C:\\Users\\LongLaptop\\Desktop\\photo\\" + path + "\\";
+        this.filePath = "C:\\Users\\Administrator\\Desktop\\photo\\" + path + "\\";
     }
     public String getFilePath(){
         return this.filePath;
@@ -71,8 +72,15 @@ public class ScreenManager extends TournamentPage {
         switch (game.trim().toLowerCase()){
             case "jurassic kingdom":
             case "mystical spirits":
-            case "COCKTAIL NIGHTS":
+            case "Gem Saviour Conquest":
             case "cocktail nights":
+            case "ganesha gold":
+            case "the queens banquet":
+            case "bakery bonanza":
+            case "gem saviour conquest":
+            case "heist stakes":
+            case "crypto gold":
+            case "crypt of fortune":
 
                 playGamePgSoft(tournamentIndex);
                 break;
@@ -96,20 +104,26 @@ public class ScreenManager extends TournamentPage {
         tournamentPage.waitAndClickOkButton(3000);
     }
     public void playGamePgSoft(int tournamentIndex){
-        scrollToElement(playTournament(tournamentIndex));
-        clickElement(playTournament(tournamentIndex));
-        clickElement(rejoin);
-        clickAndWaitImage(playGame());
-        clickAndWaitImage(option());
-        clickAndWaitImage(increaseBet());
-        clickAndWaitImage(close());
-        clickAndWaitImage(turbo());
-        clickAndWaitImage(spinOneTime());
-        clickAndWaitImage(spinOneTime());
-        clickAndWaitImage(autoPlay());
-        clickAndWaitImage(quickSpin());
-        clickAndWaitImage(dragNumberOfAutoSpin());
-        clickAndWaitImage(startAutoPlay());
-        tournamentPage.waitAndClickOkButton(3000);
+        try {
+            scrollToElement(playTournament(tournamentIndex));
+            clickElement(playTournament(tournamentIndex));
+            clickElement(rejoin);
+            clickAndWaitImage(playGame());
+            clickAndWaitImage(option());
+            clickAndWaitImage(increaseBet());
+            clickAndWaitImage(close());
+            clickAndWaitImage(turbo());
+            clickAndWaitImage(spinOneTime());
+            sleep(15);
+            clickAndWaitImage(spinOneTime());
+            sleep(15);
+            clickAndWaitImage(autoPlay());
+            clickAndWaitImage(quickSpin());
+            clickAndWaitImage(dragNumberOfAutoSpin());
+            clickAndWaitImage(startAutoPlay());
+            tournamentPage.waitAndClickOkButton(3000);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
     }
 }

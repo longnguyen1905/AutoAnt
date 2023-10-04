@@ -2,6 +2,7 @@ package potslotty.tournaments;
 
 import common.BaseTest;
 import constants.ConstantGlobal;
+import drivers.DriverManager;
 import org.testng.annotations.Test;
 import potslotty.pages.CommonPage;
 import potslotty.pages.HomePage;
@@ -9,6 +10,7 @@ import potslotty.pages.TournamentPage;
 import utils.LogUtils;
 
 import static keywords.Keyword.openURL;
+import static keywords.Keyword.sleep;
 
 public class PlayTournament {
     public ScreenManager screenManager;
@@ -24,16 +26,18 @@ public class PlayTournament {
 
     @Test
     public void testGame(){
-        for (int n =1 ; n < 100 ; n++){
+        for (int n =5 ; n < 11 ; n++){
             LogUtils.info("Profile =======================> " + n);
-            BaseTest.createProfileDriver(n);
-            openURL(ConstantGlobal.URL);
+
             for (int tournamentIndex = 1; tournamentIndex < 5 ; tournamentIndex++){
                 LogUtils.info("Tounament======================> " +tournamentIndex);
                 for (int rejoin = 7; rejoin > 0 ; rejoin--){
+                    BaseTest.createProfileDriver(n);
+                    openURL(ConstantGlobal.URL);
                     LogUtils.info("Rejoin ============================> " +rejoin);
                     screenManager.setFilePath(tournamentPage.getGameName(tournamentIndex));
                     screenManager.selectGame(tournamentPage.getGameName(tournamentIndex), tournamentIndex);
+                    BaseTest.closeDriver();
                 }
             }
         }

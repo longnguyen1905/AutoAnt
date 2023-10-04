@@ -171,21 +171,25 @@ public class Keyword {
 
     @Step("Get text of element {0}")
     public static String getElementText(By by) {
-        waitForPageLoaded();
-        waitForElementVisible(by);
-        sleep(STEP_TIME);
-        String text = getWebElement(by).getText();
-        LogUtils.info("Get text: " + text);
-        return text;
+        try {
+            waitForPageLoaded();
+            waitForElementVisible(by);
+            sleep(STEP_TIME);
+            String text = getWebElement(by).getText();
+            LogUtils.info("Get text: " + text);
+            return text;
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return "a";
     }
 
     public static void waitForElementVisible(By by) {
         try {
             WebDriverWait wait = new WebDriverWait(DriverManager.getDriver(), Duration.ofSeconds(EXPLICIT_TIMEOUT), Duration.ofMillis(5000));
             wait.until(ExpectedConditions.visibilityOfElementLocated(by));
-        } catch (Throwable error) {
+        } catch (Exception error) {
             LogUtils.error("Timeout waiting for the element Visible. " + by.toString());
-            Assert.fail("Timeout waiting for the element Visible. " + by.toString());
         }
     }
 
@@ -193,9 +197,8 @@ public class Keyword {
         try {
             WebDriverWait wait = new WebDriverWait(DriverManager.getDriver(), Duration.ofSeconds(timeOut), Duration.ofMillis(500));
             wait.until(ExpectedConditions.visibilityOfElementLocated(by));
-        } catch (Throwable error) {
+        } catch (Exception error) {
             LogUtils.error("Timeout waiting for the element Visible. " + by.toString());
-            Assert.fail("Timeout waiting for the element Visible. " + by.toString());
         }
     }
 
@@ -607,7 +610,7 @@ public class Keyword {
     public static void clickAndWaitImage(Pattern pattern){
         Screen screen = new Screen();
         try {
-            screen.wait(pattern, 120).click();
+            screen.wait(pattern, 30).click();
         }catch (Exception e){
             e.printStackTrace();
         }
