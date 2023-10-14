@@ -26,10 +26,10 @@ public class PlayTournament {
 
     @Test
     public void testGame(){
-        for (int n =5 ; n < 11 ; n++){
+        for (int n =1 ; n < 11 ; n++){
             LogUtils.info("Profile =======================> " + n);
 
-            for (int tournamentIndex = 1; tournamentIndex < 5 ; tournamentIndex++){
+            for (int tournamentIndex = 4; tournamentIndex < 5 ; tournamentIndex++){
                 LogUtils.info("Tounament======================> " +tournamentIndex);
                 for (int rejoin = 7; rejoin > 0 ; rejoin--){
                     BaseTest.createProfileDriver(n);
@@ -42,5 +42,15 @@ public class PlayTournament {
             }
         }
 
+    }
+    @Test
+    public void testProfile(){
+        for (int n =1 ; n < 11 ; n++){
+            LogUtils.info("Profile =======================> " + n);
+            BaseTest.createProfileDriver(n);
+            openURL(ConstantGlobal.URL);
+            LogUtils.info("Profile: " + n + " Balance: " + commonPage.getBalance());
+            BaseTest.closeDriver();
+        }
     }
 }

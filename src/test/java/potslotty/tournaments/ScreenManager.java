@@ -81,6 +81,17 @@ public class ScreenManager extends TournamentPage {
             case "heist stakes":
             case "crypto gold":
             case "crypt of fortune":
+            case "safari wilds":
+            case "mermaid riches":
+            case "butterfly blossom":
+            case "super golf drive":
+            case "rise of apollo":
+            case "jewels of prosperity":
+            case "prosperity fortune tree":
+            case "cruise royale":
+            case "phoenix rises":
+            case "songkran splash":
+            case "wild coaster":
 
                 playGamePgSoft(tournamentIndex);
                 break;
@@ -109,6 +120,7 @@ public class ScreenManager extends TournamentPage {
             clickElement(playTournament(tournamentIndex));
             clickElement(rejoin);
             clickAndWaitImage(playGame());
+            sleep(4);
             clickAndWaitImage(option());
             clickAndWaitImage(increaseBet());
             clickAndWaitImage(close());
@@ -121,7 +133,7 @@ public class ScreenManager extends TournamentPage {
             clickAndWaitImage(quickSpin());
             clickAndWaitImage(dragNumberOfAutoSpin());
             clickAndWaitImage(startAutoPlay());
-            tournamentPage.waitAndClickOkButton(3000);
+            tournamentPage.waitAndClickOkButton(1800);
         }catch (Exception e){
             e.printStackTrace();
         }

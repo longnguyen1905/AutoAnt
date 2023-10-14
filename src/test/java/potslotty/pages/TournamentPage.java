@@ -34,7 +34,7 @@ public class TournamentPage {
         return By.xpath(playTournamentXpath + index + "]");
     }
     public By play = By.xpath("(//div[@class=' pp-tournaments-item_action ta-play before:text-[#f5e544] sm:!m-0'])[1]");
-    public By rejoin = By.xpath("//button[@class='btndefault w-40 bnt-text-1 my-5 rounded-r-none']");
+    public By rejoin = By.xpath("//button[@class='btndefault bnt-text-1 my-5 w-40 rounded-r-none text-black']");
     private String gameNameXpath = "(//span[@class='pp-tournaments-item_countdown-label !mr-0 min-w-[150px] max-w-[150px] text-ellipsis !text-sm'])[";
     private By gameName(int index){
         return By.xpath(gameNameXpath + index + "]");

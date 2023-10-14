@@ -112,4 +112,7 @@ public class CommonPage {
         waitForPageLoaded();
         return new SearchPage();
     }
+    public String getBalance() {
+        return getElementText(switchWallet);
+    }
 }
