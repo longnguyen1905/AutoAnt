@@ -131,5 +131,8 @@ public class ProfilePage {
         verifyElementDisable(saveButton, "save button is not disable");
         Assert.assertTrue(getWebElement(inputAddress).getAttribute("value").contains("mPC_Iw3"), "address was changed");
     }
+    public String getUserName(){
+        return getElementText(userName);
+    }
 
 }

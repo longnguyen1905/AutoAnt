@@ -6,10 +6,7 @@ import helpers.CaptureHelper;
 import helpers.PropertiesHelper;
 import helpers.SystemHelper;
 import io.qameta.allure.Step;
-import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -188,7 +185,10 @@ public class Keyword {
         try {
             WebDriverWait wait = new WebDriverWait(DriverManager.getDriver(), Duration.ofSeconds(EXPLICIT_TIMEOUT), Duration.ofMillis(5000));
             wait.until(ExpectedConditions.visibilityOfElementLocated(by));
-        } catch (Exception error) {
+        }catch (TimeoutException e){
+            e.printStackTrace();
+        }
+        catch (Exception error) {
             LogUtils.error("Timeout waiting for the element Visible. " + by.toString());
         }
     }
