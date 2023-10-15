@@ -29,7 +29,7 @@ public class PlayTournament {
         for (int n =1 ; n < 11 ; n++){
             LogUtils.info("Profile =======================> " + n);
 
-            for (int tournamentIndex = 4; tournamentIndex < 5 ; tournamentIndex++){
+            for (int tournamentIndex = 3; tournamentIndex < 5 ; tournamentIndex++){
                 LogUtils.info("Tounament======================> " +tournamentIndex);
                 for (int rejoin = 7; rejoin > 0 ; rejoin--){
                     BaseTest.createProfileDriver(n);
@@ -50,6 +50,7 @@ public class PlayTournament {
             BaseTest.createProfileDriver(n);
             openURL(ConstantGlobal.URL);
             LogUtils.info("Profile: " + n + " Balance: " + commonPage.getBalance());
+            sleep(30);
             BaseTest.closeDriver();
         }
     }

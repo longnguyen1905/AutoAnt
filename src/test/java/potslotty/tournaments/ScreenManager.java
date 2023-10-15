@@ -92,6 +92,8 @@ public class ScreenManager extends TournamentPage {
             case "phoenix rises":
             case "songkran splash":
             case "wild coaster":
+            case "mask carnival":
+            case "muay thai champion":
 
                 playGamePgSoft(tournamentIndex);
                 break;
