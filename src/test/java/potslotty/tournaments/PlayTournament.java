@@ -31,7 +31,7 @@ public class PlayTournament {
 
     @Test
     public void testGame(){
-        for (int n =8 ; n < 21 ; n++){
+        for (int n =1 ; n < 21 ; n++){
             LogUtils.info("Profile =======================> " + n);
 
             for (int tournamentIndex = 3; tournamentIndex < 5 ; tournamentIndex++){
